@@ -22,4 +22,24 @@ export class MeService {
       msg: '添加成功',
     };
   }
+  getUserById(id: number) {
+    let reJson: any = {};
+    switch (id) {
+      case 1:
+        reJson = {
+          id: 1,
+          name: 'mia',
+          age: 18,
+        };
+        break;
+      case 2:
+        reJson = {
+          id: 2,
+          name: 'mima1',
+          age: 19,
+        };
+        break;
+    }
+    return reJson;
+  }
 }

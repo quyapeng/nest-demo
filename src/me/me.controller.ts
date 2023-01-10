@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Request, Query, Body } from '@nestjs/common';
+import { urlToHttpOptions } from 'url';
 import { MeService } from './me.service';
 // controller (控制器) 引入service (逻辑)
 
@@ -20,7 +21,16 @@ export class MeController {
   }
 
   @Post('/add')
-  addUser(): any {
+  //   addUser(@Request() req): any {
+  addUser(@Body() body): any {
+    // console.log(req.body);
+    console.log(body);
     return this.meService.addUser();
+  }
+
+  @Get('/getUserById')
+  getUserById(@Query() query): any {
+    let id: number = parseInt(query.id);
+    return this.meService.getUserById(id);
   }
 }
