@@ -21,8 +21,8 @@ export class MeController {
   }
 
   @Post('/add')
-  //   addUser(@Request() req): any {
   addUser(@Body() body): any {
+    // addUser(@Request() req): any {
     // console.log(req.body);
     console.log(body);
     return this.meService.addUser();
